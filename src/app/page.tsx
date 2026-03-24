@@ -297,7 +297,7 @@ export default function Home() {
 
   return (
     <>
-      <ReactLenis root options={{ lerp: 0.05 }} />
+      <ReactLenis root options={{ lerp: 0.05, syncTouch: true }} />
 
       <main className={styles.main}>
         <ScrollToTopButton></ScrollToTopButton>
