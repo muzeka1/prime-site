@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary-color: hsl(194, 100%, 13%);
+  --primary-color-dark: #0c1b2a;
+  --accent-color-light: #ffffff;
+  --accent-color: #829fa3;
+  --secondary-color: #3c5668;
+  --secondary-color-dark: #050e13;
+  --secondary-color-dark-transparent: #050e1387;
+  --accent-color-accent: #c1a078;
+}
+
+@font-face {
+  font-family: "Grafita";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Grafita\ Normal.woff2");
+}
+
+@font-face {
+  font-family: "Grafita Special";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Grafita\ Special.woff2");
+}
+
+@font-face {
+  font-family: "Aeonik Light";
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Aeonik\ Light.woff2");
+}
+
+@font-face {
+  font-family: "Aeonik Regular";
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Aeonik\ Regular.woff2");
+}
+
+@font-face {
+  font-family: "Enthalpy";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/ofont.ru_Enthalpy-298-2.woff");
+}
+
+@theme inline {
+  --color-primary: var(--primary-color);
+  --color-primary-dark: var(--primary-color-dark);
+  --color-accent: var(--accent-color);
+  --color-accent-light: var(--accent-color-light);
+  --color-secondary: var(--secondary-color);
+  --color-secondary-dark: var(--secondary-color-dark);
+  --color-secondary-dark-transparent: var(--secondary-color-dark-transparent);
+  --color-accent-color: var(--accent-color-accent);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+@theme {
+  --font-grafita: Grafita, sans-serif;
+  --font-grafita-special: Grafita Special, sans-serif;
+  --font-aeonik-light: Aeonik Light, sans-serif;
+  --font-aeonik-regular: Aeonik Regular, sans-serif;
+  --font-enthalpy: Enthalpy, sans-serif;
+}
+
+body {
+  background: var(--color-primary-dark);
+  color: var(--accent-color);
+  font-family: Grafita, sans-serif;
+}
+
+section {
+  margin: 0 auto;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+.animate-zoom {
+  animation: zoom 20s ease-in-out infinite alternate;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--accent-color-light) !important;
+}
+
+.swiper-pagination-bullet {
+  background: var(--accent-color-light) !important;
+  opacity: 0.7  !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--accent-color-light) !important;
+}
+

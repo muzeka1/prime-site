@@ -1,0 +1,13 @@
+.button {
+    position: fixed;
+    z-index: 1000;
+    bottom: 5%;
+    right: 3%;
+    background-color: var(--color-accent-light);
+    border: 2px var(--color-secondary) solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+}

@@ -1,0 +1,84 @@
+.container {
+  position: relative;
+  overflow: hidden;
+  padding: 40px 0;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/renders/2_5.jpg");
+  background-size: cover;
+  background-position: center;
+  transform: translateY(0);
+  filter: brightness(0.6);
+  will-change: transform;
+  z-index: -1;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+.card {
+  width: 45%;
+  background-color: var(--color-secondary-dark-transparent);
+  backdrop-filter: blur(2px);
+  border-radius: 12px;
+  padding: 40px;
+  opacity: 0;
+  transition: transform 0.7s cubic-bezier(.3,0.2,.3,1), opacity 1.1s ease;
+  will-change: transform, opacity;
+  color: var(--color-accent-light);
+}
+
+.card:nth-child(odd) {
+  align-self: flex-start;
+  transform: translateX(300%);
+}
+
+.card:nth-child(even) {
+  align-self: flex-end;
+  transform: translateX(300%);
+}
+
+.card h3 {
+  font-family: var(--font-grafita);
+  font-size: 30px;
+}
+
+.card span {
+    color: var(--color-accent);
+    padding-right: 10px;
+}
+
+.card p {
+  font-size: 16px;
+  font-family: var(--font-aeonik-light);
+  color: var(--color-accent-light);
+}
+
+.visible {
+  opacity: 1;
+}
+.card:nth-child(odd).visible {
+  transform: translateX(0);
+}
+
+.card:nth-child(even).visible  {
+  transform: translateX(0);
+}
+
+/* .swiperContainer {
+    flex-basis: 50%;
+    max-width: 60%;
+    height: 100%;
+    margin-bottom: 50px;
+}
+
+.swiper {
+    height: 600px;
+    max-width: 100%;
+} */

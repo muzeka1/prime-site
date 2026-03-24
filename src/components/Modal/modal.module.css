@@ -1,0 +1,34 @@
+.container {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-secondary-dark-transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100000;
+    color: var(--color-secondary);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.window {
+    padding: 60px 40px;
+    border-radius: 30px;
+    background-color: var(--color-accent-light);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    position: absolute;
+    right: 18px;
+    top: 18px;
+}
+
+.container.open {
+    opacity: 1;
+}
