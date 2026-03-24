@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  background-color: var(--color-primary-dark);
 }
 
 .title {
@@ -15,7 +16,6 @@
   opacity: 1;
   transform: translateY(50px);
   overflow: hidden;
-  /* transition: all 0.9s cubic-bezier(0.22, 0.61, 0.36, 1); */
 }
 
 .show {
@@ -162,4 +162,23 @@
 
 .next {
   right: 5%;
+}
+
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .card {
+    height: 200px;
+  }
+  .title {
+    font-size: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 80px;
+  }
 }

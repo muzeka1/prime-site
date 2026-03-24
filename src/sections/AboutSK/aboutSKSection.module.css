@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    background-color: var(--color-accent-light);
+    padding: 40px 80px;
+}
+
+@media (max-width: 1000px) {
+    .container {
+        padding: 80px 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 40px 20px;
+    }
+}

@@ -1,17 +1,18 @@
 "use client"
 
-import Header from "../sections/Header";
-import InfoSection from "../sections/InfoSection";
+import Header from "../sections/Header/header";
+import InfoSection from "../sections/InfoSection/infoSection";
 import { ReactLenis, useLenis } from 'lenis/react'
-import AboutSection from "../sections/About";
-import NumbersSection from "../sections/Numbers";
-import GallerySection from "../sections/Gallery";
+import AboutSection from "../sections/About/about";
+import NumbersSection from "../sections/Numbers/numbers";
+import GallerySection from "../sections/Gallery/gallery";
 import InfoBlock from "../components/InfoBlock/infoBlock";
-import ApartmentsBlock from "../sections/Apartments";
+import ApartmentsBlock from "../sections/Apartments/apartments";
 import ScrollToTopButton from "../components/ScrollUpButton/scrollUpButton";
 
 import styles from "./page.module.css";
 import { useCallback, useEffect, useRef } from "react";
+import AboutSKSection from "../sections/AboutSK/aboutSKSection";
 
 type SectionEl = HTMLElement | null;
 type SnapAlign = 'start' | 'end';
@@ -23,11 +24,13 @@ const EDGE_TOLERANCE = 50;
 const SNAP_DURATION = 2;
 const SNAP_COOLDOWN = 100;
 
+
 export default function Home() {
 
   const lenis = useLenis();
 
   const sectionsRef = useRef<HTMLElement[]>([]);
+  const aboutSKSectionRef = useRef<HTMLElement | null>(null)
   const currentIndex = useRef(0);
   const isSnapping = useRef(false);
   const lastSnapAt = useRef(0);
@@ -74,34 +77,34 @@ export default function Home() {
 
   const getCurrentSectionIndex = useCallback(() => {
     const viewportCenter = window.innerHeight / 2;
-  
+
     for (let i = 0; i < sectionsRef.current.length; i++) {
       const section = sectionsRef.current[i];
       if (!section) continue;
-  
+
       const rect = section.getBoundingClientRect();
-  
+
       if (rect.top <= viewportCenter && rect.bottom >= viewportCenter) {
         return i;
       }
     }
-  
+
     let closestIndex = 0;
     let minDistance = Infinity;
-  
+
     sectionsRef.current.forEach((section, index) => {
       if (!section) return;
-  
+
       const rect = section.getBoundingClientRect();
       const sectionCenter = rect.top + rect.height / 2;
       const distance = Math.abs(sectionCenter - viewportCenter);
-  
+
       if (distance < minDistance) {
         minDistance = distance;
         closestIndex = index;
       }
     });
-  
+
     return closestIndex;
   }, []);
 
@@ -298,7 +301,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <ScrollToTopButton></ScrollToTopButton>
-        <section ref={(el) => setSectionRef(el, 0)}><Header></Header></section>
+        <section ref={(el) => setSectionRef(el, 0)}><Header aboutSKSectionRef={aboutSKSectionRef}></Header></section>
         <section ref={(el) => setSectionRef(el, 1)}>
           <AboutSection></AboutSection>
           <NumbersSection></NumbersSection>
@@ -306,18 +309,19 @@ export default function Home() {
           <InfoBlock
             title="Авторская Архитектура"
             description="Нью-Йоркский стиль в современном переосмыслении и адаптации. Сочетание силы, геометрии, вертикальных ритмов и ощущение уверенного городского масштаба."
-            image="/images/renders/7.jpg"
+            image="/images/renders/7_crop.jpg"
             imagePosition="left"
           />
           <InfoBlock
             title="ПРОЕКТ МОСТА"
             description="Проектом предусмотрено строительство отдельного моста, который станет важным элементом инфраструктуры жилого комплекса. Мост обеспечит дополнительную связь территории проекта с окружающей городской средой и повысит удобство передвижения для жителей. Реализация моста направлена на улучшение транспортной и пешеходной доступности, а также на формирование целостной и продуманной инфраструктуры района."
-            image="/images/renders/18.jpg"
+            image="/images/renders/18_crop.jpg"
             imagePosition="right"
           />
-        </section>
-        <section ref={(el) => setSectionRef(el, 2)}><GallerySection></GallerySection></section>
-        <section ref={(el) => setSectionRef(el, 3)}><ApartmentsBlock /></section>
+          <GallerySection/>
+          <ApartmentsBlock />
+          <AboutSKSection ref={aboutSKSectionRef}/>
+          </section>
       </main>
     </>
 

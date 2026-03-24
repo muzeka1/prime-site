@@ -1,3 +1,64 @@
 .container {
-    display: flex;
+  width: 100%;
+  column-count: 2;
+  column-gap: 80px;
+}
+
+.textBlock {
+}
+
+.mainTitle {
+  font-size: 40px;
+  margin-bottom: 40px;
+  color: var(--color-accent);
+}
+
+.title {
+  color: var(--color-secondary);
+  font-family: var(--font-grafita);
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.text {
+  font-family: var(--font-aeonik-light);
+  font-size: 18px;
+  color: var(--color-primary);
+  margin-bottom: 40px;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    column-gap: 20px;
+  }
+
+  .mainTitle {
+    font-size: 28px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    column-gap: 10px;
+  }
+
+  .mainTitle {
+    font-size: 20px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
 }

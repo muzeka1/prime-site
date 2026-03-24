@@ -26,7 +26,7 @@ export default function InfoBlock({
             </div>
 
             <div className={styles.image}>
-                <Image src={image} alt={title} fill sizes="1500px" style={{ objectFit: "cover", objectPosition: "center" }} />
+                <Image src={image} alt={title} fill sizes="1500px" style={{ objectFit: "cover", objectPosition: "bottom" }} />
             </div>
         </div>
     );

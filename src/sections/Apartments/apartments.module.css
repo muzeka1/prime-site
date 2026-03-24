@@ -24,10 +24,6 @@
   background-color: var(--color-accent);
 }
 
-.reverse {
-  flex-direction: row-reverse;
-}
-
 .text {
   position: relative;
   flex-basis: 50%;
@@ -43,6 +39,7 @@
   line-height: 72px;
   text-transform: uppercase;
   padding-bottom: 40px;
+  line-height: 48px;
 }
 
 .description {
@@ -76,7 +73,7 @@
   font-size: 20px;
   border: 2px var(--color-accent) solid;
   padding: 15px;
-  transition: all 0.7s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .button:hover p {
@@ -189,4 +186,53 @@
 
 .next {
   right: 5%;
+}
+
+@media (max-width: 1000px) {
+  .line_up {
+    top: 5px;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .text {
+    flex-basis: 40%;
+    padding: 0 40px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image {
+    width: 100%;
+    flex-basis: 60%;
+    display: flex;
+    position: relative;
+  }
+
+  .title {
+    padding-top: 10px;
+    font-size: 40px;
+    padding-bottom: 15px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .button {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .text {
+    padding: 0 20px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
 }

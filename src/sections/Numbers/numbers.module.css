@@ -102,3 +102,42 @@
   font-size: 60px;
   padding-left: 10px;
 }
+
+@media (max-width: 1000px) {
+  .item {
+    gap: 10px;
+  }
+
+  .item h3 {
+    font-size: 50px;
+  }
+
+  .item p {
+    font-size: 16px;
+  }
+
+  .title_span {
+    font-size: 30px;
+    padding-left: 5px;
+  }
+
+  .row_type1 div{
+    flex-basis: 50%;
+  }
+
+  .row_type2 div{
+    flex-basis: 50%;
+  }
+
+  .row_type2::after {
+    display: none;
+  }
+
+  .item_apartments {
+    border-left: none;
+  }
+
+  .row_type2 div {
+    border-left: none;
+  }
+}

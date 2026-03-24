@@ -1,5 +1,45 @@
 .container {
     font-family: var(--font-aeonik-regular);
-    font-size: 28px;
+    color: var(--color-secondary);
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
+.phone {
+    display: flex;
+    gap: 30px;
+}
+
+.adress {
+    display: flex;
+    gap: 30px;
+}
+
+.link {
+    transition: color .3s ease-in-out;
+    position: relative;
+}
+
+.link::after {
+    content: "";
+    background-color: var(--color-secondary);
+    display: inline-block;
+    height: 2px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    transition: width .3s ease-in-out, background-color .3s ease-in-out;
+}
+
+.link:hover {
+    color: var(--color-accent)
+}
+
+.link:hover::after {
+    background-color: var(--color-accent);
+    width: 100%;
+}

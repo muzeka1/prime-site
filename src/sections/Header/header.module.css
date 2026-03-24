@@ -96,3 +96,9 @@
 .link:hover {
   color: var(--color-accent-light);
 }
+
+@media (max-width: 600px) {
+  .hero_text {
+    font-size: 45px;
+  }
+}
