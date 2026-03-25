@@ -74,14 +74,14 @@ export default function Header({ aboutSKSectionRef }: HeaderProps) {
             ПРАЙМ
           </Link>
 
-          <nav className="hidden md:flex gap-6">
+          <nav className={`hidden md:flex gap-6 ${styles.navPanel}`}>
             <Link href="/" className={styles.navButton}>Главная</Link>
             <button onClick={(e) => scrollToAboutSK(e)} className={styles.navButton}>О компании</button>
             <button onClick={() => setContactsIsOpen(true)} className={styles.navButton}>Контакты</button>
           </nav>
 
           <div className="hidden md:block">
-            <button onClick={() => setRequestFormIsOpen(true)} className={styles.navButton}>Оставить заявку</button>
+            <button onClick={() => setRequestFormIsOpen(true)} className={`${styles.navButton} ${styles.requestButton}`}>Оставить заявку</button>
           </div>
           <MobileMenu />
         </div>
