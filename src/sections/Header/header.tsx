@@ -8,6 +8,7 @@ import Modal from '../../components/Modal/modal';
 import RequestForm from '../../components/RequestForm/requestForm';
 import Contacts from '../../components/Contacts/contacts';
 import AboutSK from '../../components/AboutSK/aboutSK';
+import Image from 'next/image';
 
 interface HeaderProps {
   aboutSKSectionRef: RefObject<HTMLElement | null>
@@ -85,6 +86,10 @@ export default function Header({ aboutSKSectionRef }: HeaderProps) {
           </div>
           <MobileMenu />
         </div>
+
+      </div>
+      <div className={styles.arrowDown}>
+        <Image src="/images/arrowDown.svg" alt="стрелка вниз" width={64} height={64} />
       </div>
       <Modal isOpen={requestFormIsOpen} onClose={() => setRequestFormIsOpen(false)}>
         <RequestForm></RequestForm>
