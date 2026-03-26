@@ -5,7 +5,9 @@
     height: auto;
     background-color: var(--color-accent-light);
     padding: 40px 80px;
+    position: relative;
 }
+
 
 @media (max-width: 1000px) {
     .container {

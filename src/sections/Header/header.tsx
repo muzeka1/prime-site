@@ -22,6 +22,8 @@ export default function Header({ aboutSKSectionRef }: HeaderProps) {
   const [requestFormIsOpen, setRequestFormIsOpen] = useState(false)
   const [contactsIsOpen, setContactsIsOpen] = useState(false)
   const [aboutSKIsOpen, setAboutSKIsOpen] = useState(false)
+  const [isOpenNavMenu, setIsOpenNavMenu] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(0)
 
   const scrollToAboutSK = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -34,8 +36,18 @@ export default function Header({ aboutSKSectionRef }: HeaderProps) {
   };
 
   useEffect(() => {
-    if (!lenis) return
+    function handleResize() {
+      setWindowWidth(window.innerWidth)
+    }
 
+    handleResize()
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  useEffect(() => {
+    if (!lenis) return
     const handleScroll = ({ scroll }: { scroll: number }) => {
       const viewHeight = window.innerHeight;
 
@@ -53,7 +65,6 @@ export default function Header({ aboutSKSectionRef }: HeaderProps) {
     }
 
     lenis.on("scroll", handleScroll)
-
     return () => {
       lenis.off("scroll", handleScroll)
     }
@@ -69,22 +80,57 @@ export default function Header({ aboutSKSectionRef }: HeaderProps) {
           </h1>
         </div>
       </div>
+      <button onClick={() => setRequestFormIsOpen(true)} className={`${styles.navButton} ${styles.requestButton}`}>Оставить заявку</button>
       <div className={styles.nav_bar_container}>
         <div className={styles.nav_bar}>
           <Link href="/" className={styles.logo}>
             ПРАЙМ
           </Link>
 
-          <nav className={`hidden md:flex gap-6 ${styles.navPanel}`}>
+          <nav className={styles.navPanel}>
             <Link href="/" className={styles.navButton}>Главная</Link>
             <button onClick={(e) => scrollToAboutSK(e)} className={styles.navButton}>О компании</button>
             <button onClick={() => setContactsIsOpen(true)} className={styles.navButton}>Контакты</button>
           </nav>
 
-          <div className="hidden md:block">
-            <button onClick={() => setRequestFormIsOpen(true)} className={`${styles.navButton} ${styles.requestButton}`}>Оставить заявку</button>
+          <div className={styles.burgerButton}>
+            <button onClick={() => setIsOpenNavMenu(!isOpenNavMenu)} className={styles.button}>
+              <span className="block w-6 h-0.5 bg-white"></span>
+              <span className="block w-6 h-0.5 bg-white"></span>
+              <span className="block w-6 h-0.5 bg-white"></span>
+            </button>
+
+            {windowWidth <= 650 && (
+              <div className={`${styles.burgerMenu} ${isOpenNavMenu ? styles.burgerMenuActive : ""}`}>
+                <button className={styles.closeBurgerMenuButton} onClick={()=>setIsOpenNavMenu(false)}>
+                  <Image src='/images/close_white.svg' alt='закрыть кнопка' width={30} height={30}></Image>
+                </button>
+                <button onClick={() => setIsOpenNavMenu(false)} className={styles.burgerMenuButton}>Главная</button>
+                <button onClick={(e) => {
+                  setIsOpenNavMenu(false)
+                  scrollToAboutSK(e)
+                }}
+                  className={styles.burgerMenuButton}
+                >О компании</button>
+
+                <button onClick={() => {
+                  setIsOpenNavMenu(false)
+                  setContactsIsOpen(true)
+                }}
+                  className={styles.burgerMenuButton}
+                >Контакты</button>
+
+                <button onClick={() => {
+                  setIsOpenNavMenu(false);
+                  setRequestFormIsOpen(true);
+                }}
+                  className={styles.burgerMenuButton}
+                >Оставить заявку
+                </button>
+
+              </div>
+            )}
           </div>
-          <MobileMenu />
         </div>
 
       </div>
@@ -100,31 +146,6 @@ export default function Header({ aboutSKSectionRef }: HeaderProps) {
       <Modal isOpen={aboutSKIsOpen} onClose={() => setAboutSKIsOpen(false)}>
         <AboutSK></AboutSK>
       </Modal>
-    </div>
-  )
-}
-
-function MobileMenu() {
-  const [open, setOpen] = useState(false)
-
-  return (
-    <div className="md:hidden">
-      <button onClick={() => setOpen(!open)} className={styles.button}>
-        <span className="block w-6 h-0.5 bg-white"></span>
-        <span className="block w-6 h-0.5 bg-white"></span>
-        <span className="block w-6 h-0.5 bg-white"></span>
-      </button>
-
-      {open && (
-        <div className="absolute right-4 top-full mt-2 bg-primary text-text_light rounded-md p-4 flex flex-col gap-4">
-          <Link href="/" onClick={() => setOpen(false)}>Главная</Link>
-          <Link href="/about" onClick={() => setOpen(false)}>О компании</Link>
-          <Link href="/projects/pritjagenie" onClick={() => setOpen(false)}>ЖК</Link>
-          <Link href="/calculator" onClick={() => setOpen(false)}>Рассрочка</Link>
-          <Link href="/contacts" onClick={() => setOpen(false)}>Контакты</Link>
-          <button>Оставить заявку</button>
-        </div>
-      )}
     </div>
   )
 }

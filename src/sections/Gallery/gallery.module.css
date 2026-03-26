@@ -164,7 +164,21 @@
   right: 5%;
 }
 
+@media (max-width: 1200px) {
+  .title {
+    font-size: 150px;
+  }
+}
+
 @media (max-width: 1000px) {
+  .container {
+    padding: 40px 20px 20px;
+  }
+
+  .title {
+    margin-bottom: 20px;
+  }
+
   .grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
@@ -173,12 +187,22 @@
     height: 200px;
   }
   .title {
-    font-size: 100px;
+    font-size: 120px;
   }
 }
 
 @media (max-width: 600px) {
+  .container {
+    padding: 20px 10px 10px;
+  }
+
   .title {
     font-size: 80px;
+  }
+}
+
+@media (max-width: 450px) {
+  .title {
+    font-size: 40px;
   }
 }

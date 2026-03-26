@@ -7,7 +7,6 @@
 }
 
 .line_up {
-  display: flex;
   position: absolute;
   top: 20px;
   width: 100%;
@@ -16,9 +15,8 @@
 }
 
 .line_down {
-  display: flex;
   position: absolute;
-  bottom: 20px;
+  bottom: 21px;
   width: 100%;
   height: 1px;
   background-color: var(--color-accent);

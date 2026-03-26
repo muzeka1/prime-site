@@ -6,7 +6,7 @@ export default function Contacts() {
         <div className={styles.container}>
             <div className={styles.phone}>
                 <p>Номер телефона: </p>
-                <Link className={styles.link} href={"tel:+79882233333"}>+7 988 223-33-33</Link>
+                <Link className={styles.link} href={"tel:+79882233333"} target="_blank">+7 988 223-33-33</Link>
             </div>
             <div className={styles.adress}>
                 <p>Адрес: </p>

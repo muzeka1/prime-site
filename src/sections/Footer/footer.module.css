@@ -1,0 +1,147 @@
+.container {
+    padding: 80px;
+    background-color: var(--color-primary);
+    font-family: var(--font-aeonik-regular);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logoBlock {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logo {
+    font-family: var(--font-grafita-special);
+    font-size: 100px;
+    cursor: pointer;
+}
+
+.requestButton {
+    background-color: var(--color-primary-dark);
+    color: var(--color-accent-light);
+    border-radius: 20px;
+    padding: 2px 20px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color .3s ease-in-out, background-color .3s ease-in-out;
+}
+
+.requestButton:hover {
+    background-color: var(--color-accent-light);
+    color: var(--color-primary);
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: end;
+}
+
+.phone {
+    font-size: 70px;
+    cursor: pointer;
+    transition: color .3s ease-in-out;
+}
+
+.phone:hover {
+    color: var(--color-accent-light);
+}
+
+.email {
+    font-size: 40px;
+    transition: color .3s ease-in-out;
+}
+
+.email:hover {
+    color: var(--color-accent-light)
+}
+
+.adress {
+    transition: color .3s ease-in-out;
+    font-size: 20px;
+    text-align: end;
+    line-height: 1;
+}
+
+.adress:hover {
+    color: var(--color-accent-light)
+}
+
+@media (max-width: 1200px) {
+    .logo {
+        font-size: 80px;
+    }
+
+    .phone {
+        font-size: 56px;
+    }
+
+    .email {
+        font-size: 36px;
+    }
+
+    .adress {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .container {
+        padding: 40px;
+    }
+
+    .logo {
+        font-size: 72px;
+    }
+
+    .email {
+        font-size: 28px;
+    }
+
+    .phone {
+        font-size: 52px;
+    }
+}
+
+@media (max-width: 800px) {
+    .logo {
+        font-size: 60px;
+    }
+
+    .phone {
+        font-size: 40px;
+    }
+
+    .email {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 650px) {
+    .container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .contacts {
+        width: 100%;
+        align-items: end;
+        gap: ;
+    }
+
+    .phone {
+        font-size: 28px;
+    }
+
+    .email {
+        font-size: 18px;
+    }
+
+    .adress {
+        font-size: 16px;
+    }
+}

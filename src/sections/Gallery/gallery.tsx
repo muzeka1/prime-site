@@ -9,6 +9,7 @@ import { Navigation, Keyboard } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useLenis } from "lenis/react";
+import Link from "next/link";
 
 const images = [
     "/images/renders/1.jpg",
@@ -28,6 +29,24 @@ const images = [
     "/images/renders/17.png",
 ];
 
+const imagesResized = [
+    "/images/renders/renders_resized/1.jpg",
+    "/images/renders/renders_resized/2.jpg",
+    "/images/renders/renders_resized/3.jpg",
+    "/images/renders/renders_resized/4.jpg",
+    "/images/renders/renders_resized/5.jpg",
+    "/images/renders/renders_resized/7.jpg",
+    "/images/renders/renders_resized/8.jpg",
+    "/images/renders/renders_resized/9.jpg",
+    "/images/renders/renders_resized/10.jpg",
+    "/images/renders/renders_resized/11.jpg",
+    "/images/renders/renders_resized/12.jpg",
+    "/images/renders/renders_resized/13.png",
+    "/images/renders/renders_resized/15.png",
+    "/images/renders/renders_resized/16.png",
+    "/images/renders/renders_resized/17.png",
+]
+
 export default function GallerySection() {
     const [active, setActive] = useState<number | null>(null);
     const titleRef = useRef<HTMLHeadingElement>(null);
@@ -45,7 +64,7 @@ export default function GallerySection() {
             const rect = sectionRef.current.getBoundingClientRect();
             const offset = rect.top - window.innerHeight;
             const scale = window.innerHeight / Math.abs(offset);
-            titleRef.current.style.transform = `scale(${scale})` 
+            titleRef.current.style.transform = `scale(${scale*1.5})`
         }
 
         lenis.on("scroll", handleScroll)
@@ -66,7 +85,7 @@ export default function GallerySection() {
                         className={styles.card}
                         onClick={() => setActive(i)}
                     >
-                        <Image className={styles.cardImage} src={src} alt="фото жилого комплекса" fill sizes="700px" />
+                        <Image className={styles.cardImage} src={imagesResized[i]} alt="фото жилого комплекса" fill sizes="700px" />
                     </div>
                 ))}
             </div>
@@ -92,12 +111,15 @@ export default function GallerySection() {
                         >
                             {images.map((src, i) => (
                                 <SwiperSlide key={i} className={styles.swiperSlide}>
-                                    <Image
-                                        fill
-                                        src={src}
-                                        alt="фото жилого комплекса"
-                                        className={styles.popupImage}
-                                    />
+                                    <Link target="_blank" href={src}>
+                                        <Image
+                                            fill
+                                            src={src}
+                                            alt="фото жилого комплекса"
+                                            className={styles.popupImage}
+                                        />
+                                    </Link>
+
                                 </SwiperSlide>
                             ))}
                         </Swiper>

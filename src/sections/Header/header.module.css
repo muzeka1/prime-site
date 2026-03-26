@@ -10,21 +10,20 @@
 }
 
 .nav_bar_container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 50%;
   transform: translate(-50%, 0);
   width: 100%;
-  max-width: 1280px;
   display: flex;
   justify-content: center;
-  padding: 0 20px;
+  padding: 20px 80px;
+  z-index: 100;
 }
 
 .nav_bar {
   color: var(--color-accent-light);
   width: 100%;
-  height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,6 +31,8 @@
 }
 
 .navPanel {
+  display: flex;
+  gap: 24px;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -79,6 +80,7 @@
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
   color: var(--color-primary);
   background-color: var(--color-accent-light);
+  border: 4px var(--color-primary) solid;
 }
 
 .navButton:hover {
@@ -87,19 +89,23 @@
 }
 
 .requestButton {
-  position: relative;
+  position: absolute;
   top: 80vh;
-  right: 2%;
+  left: 50%;
+  transform:  translateX(-50%);
   font-size: 30px;
-  outline-offset: 0;
   cursor: pointer;
   overflow: hidden;
   z-index: 10;
-  --angle: 0deg;
-  border-image: linear-gradient(var(--angle), green, yellow) 1;
-  animation: 5s rotate linear infinite;
 }
 
+.burgerButton {
+  display: none;
+  cursor: pointer;
+  padding: 14px;
+  background-color: var(--color-primary);
+  border-radius: 20px;
+}
 
 .button {
   outline: none;
@@ -109,10 +115,42 @@
   justify-content: space-between;
 }
 
+.burgerMenu {
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  position: absolute;
+  width: 80vw;
+  top: 0;
+  right: 0;
+  transform: translateX(200%);
+  transition: transform .3s ease-in-out;
+  background-color: var(--color-primary-dark);
+}
+
+.burgerMenuActive {
+  transform: translateX(0);
+}
+
+.burgerMenuButton {
+  font-size: 26px;
+  padding: 10px 0;
+}
+
+.closeBurgerMenuButton {
+  position: absolute;
+  right: 32px;
+  top: 32px;
+}
+
 .logo {
   font-size: 30px;
   color: var(--color-accent-light);
   font-family: "Grafita Special", sans-serif;
+  background-color: var(--color-primary);
+  padding: 5px 10px;
+  border-radius: 20px;
 }
 
 .link {
@@ -143,8 +181,32 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
+  .nav_bar_container {
+    padding: 20px;
+  }
+
+  .navButton {
+    padding: 2px 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 650px) {
+  .navPanel {
+    display: none;
+  }
+
+  .burgerButton {
+    display: block;
+  }
+
   .hero_text {
     font-size: 45px;
+  }
+
+  .requestButton {
+    font-size: 20px;
+    padding: 2px 10px;
   }
 }

@@ -13,6 +13,7 @@ import ScrollToTopButton from "../components/ScrollUpButton/scrollUpButton";
 import styles from "./page.module.css";
 import { useCallback, useEffect, useRef } from "react";
 import AboutSKSection from "../sections/AboutSK/aboutSKSection";
+import FooterSection from "../sections/Footer/footer";
 
 type SectionEl = HTMLElement | null;
 type SnapAlign = 'start' | 'end';
@@ -301,8 +302,13 @@ export default function Home() {
 
       <main className={styles.main}>
         <ScrollToTopButton></ScrollToTopButton>
-        <section ref={(el) => setSectionRef(el, 0)}><Header aboutSKSectionRef={aboutSKSectionRef}></Header></section>
-        <section ref={(el) => setSectionRef(el, 1)}>
+        <section
+          // ref={(el) => setSectionRef(el, 0)}
+        >
+          <Header aboutSKSectionRef={aboutSKSectionRef}></Header></section>
+        <section
+          // ref={(el) => setSectionRef(el, 1)}
+        >
           <AboutSection></AboutSection>
           <NumbersSection></NumbersSection>
           <InfoSection></InfoSection>
@@ -318,10 +324,11 @@ export default function Home() {
             image="/images/renders/18_crop.jpg"
             imagePosition="right"
           />
-          <GallerySection/>
+          <GallerySection />
           <ApartmentsBlock />
-          <AboutSKSection ref={aboutSKSectionRef}/>
-          </section>
+          <AboutSKSection ref={aboutSKSectionRef} />
+          <FooterSection/>
+        </section>
       </main>
     </>
 

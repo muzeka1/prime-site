@@ -30,7 +30,7 @@
   border-radius: 12px;
   padding: 40px;
   opacity: 0;
-  transition: transform 0.7s cubic-bezier(.3,0.2,.3,1), opacity 1.1s ease;
+  transition: transform 0.7s cubic-bezier(.8,0.2,.3,1), opacity 1.1s ease;
   will-change: transform, opacity;
   color: var(--color-accent-light);
 }
@@ -74,12 +74,17 @@
 
 @media (max-width: 1000px) {
   .card {
+    padding: 20px;
     width: 80%;
   }
 }
 
 
 @media (max-width: 600px) {
+  .card {
+    padding: 10px;
+    width: 100%;
+  }
   .card h3{
     font-size: 20px;
   }

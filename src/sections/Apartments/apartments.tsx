@@ -25,6 +25,7 @@ export default function ApartmentsBlock() {
             className={styles.container}
         >
             <div className={styles.line_up}></div>
+            <div className={styles.line_down}></div>
             <div className={styles.text}>
                 <h2 className={styles.title}>ПЛАН ТИПОВОГО ЭТАЖА</h2>
                 <p className={styles.description}>На этаже представлено 6 различных планировок. Такое разнообразие форматов позволяет выбрать оптимальное решение под разные сценарии жизни — от компактных пространств до более просторных квартир с функциональным зонированием.</p>
