@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Прайм",
+  title: "Прайм - Строительная компания",
   description: "Строительная компания",
 };
 
