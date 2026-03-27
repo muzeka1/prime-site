@@ -39,7 +39,7 @@
 .title {
   font-size: 56px;
   font-family: var(--font-grafita);
-  line-height: 72px;
+  line-height: 1.2;
   text-transform: uppercase;
   padding-bottom: 40px;
 }
