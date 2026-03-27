@@ -104,7 +104,7 @@
   cursor: pointer;
   padding: 14px;
   background-color: var(--color-primary);
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .button {
