@@ -25,6 +25,10 @@ export default function Header({ aboutSKSectionRef }: HeaderProps) {
   const [isOpenNavMenu, setIsOpenNavMenu] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0)
 
+  const scrollToTop = () => {
+    lenis?.scrollTo(0)
+  }
+
   const scrollToAboutSK = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (aboutSKSectionRef?.current && lenis) {
@@ -88,7 +92,7 @@ export default function Header({ aboutSKSectionRef }: HeaderProps) {
           </Link>
 
           <nav className={styles.navPanel}>
-            <Link href="/" className={styles.navButton}>Главная</Link>
+            <button onClick={()=> scrollToTop()} className={styles.navButton}>Главная</button>
             <button onClick={(e) => scrollToAboutSK(e)} className={styles.navButton}>О компании</button>
             <button onClick={() => setContactsIsOpen(true)} className={styles.navButton}>Контакты</button>
           </nav>
@@ -102,10 +106,13 @@ export default function Header({ aboutSKSectionRef }: HeaderProps) {
 
             {windowWidth <= 650 && (
               <div className={`${styles.burgerMenu} ${isOpenNavMenu ? styles.burgerMenuActive : ""}`}>
-                <button className={styles.closeBurgerMenuButton} onClick={()=>setIsOpenNavMenu(false)}>
+                <button className={styles.closeBurgerMenuButton} onClick={() => setIsOpenNavMenu(false)}>
                   <Image src='/images/close_white.svg' alt='закрыть кнопка' width={30} height={30}></Image>
                 </button>
-                <button onClick={() => setIsOpenNavMenu(false)} className={styles.burgerMenuButton}>Главная</button>
+                <button onClick={() => {
+                  scrollToTop()
+                  setIsOpenNavMenu(false)
+                }} className={styles.burgerMenuButton}>Главная</button>
                 <button onClick={(e) => {
                   setIsOpenNavMenu(false)
                   scrollToAboutSK(e)

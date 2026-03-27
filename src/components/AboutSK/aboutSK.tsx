@@ -3,8 +3,8 @@ import styles from "./aboutSK.module.css"
 export default function AboutSK() {
     return (
         <div className={styles.container}>
+            <h3 className={styles.mainTitle}>О КОМПАНИИ</h3>
             <div className={styles.textBlock}>
-                <h3 className={styles.mainTitle}>О КОМПАНИИ</h3>
                 <h4 className={styles.title}>ПРАЙМ ДЕВЕЛОПМЕНТ</h4>
                 <p className={styles.text}>Прайм Девелопмент — компания с глубокой
                     производственной ДНК и реальным опытом,
@@ -40,14 +40,7 @@ export default function AboutSK() {
                     складского комплекса Ozon. Это
                     уровень требований, где не бывает
                     компромиссов по качеству,
-                    геометрии и срокам.<br /></p>
-                <h4 className={styles.title}>СИММЕТРИЯ</h4>
-                <p className={styles.text}>Консалтинговое бюро полного цикла
-                    для девелопмента, специализирующееся
-                    на комплексном сопровождении
-                    коммерческого сектора проекта –
-                    работа с девелоперским продуктом,
-                    маркетинг и продажи.</p>
+                    геометрии и срокам.</p>
 
             </div>
             <div className={styles.textBlock}>

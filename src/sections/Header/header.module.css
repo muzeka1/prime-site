@@ -80,7 +80,7 @@
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
   color: var(--color-primary);
   background-color: var(--color-accent-light);
-  border: 4px var(--color-primary) solid;
+  border: 2px var(--color-primary) solid;
 }
 
 .navButton:hover {
@@ -125,7 +125,7 @@
   top: 0;
   right: 0;
   transform: translateX(200%);
-  transition: transform .3s ease-in-out;
+  transition: transform .7s ease-out;
   background-color: var(--color-primary-dark);
 }
 
@@ -150,7 +150,7 @@
   font-family: "Grafita Special", sans-serif;
   background-color: var(--color-primary);
   padding: 5px 10px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .link {

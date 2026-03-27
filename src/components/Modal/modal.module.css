@@ -14,7 +14,7 @@
 }
 
 .window {
-    padding: 60px 40px;
+    padding: 40px;
     border-radius: 30px;
     background-color: var(--color-accent-light);
     position: relative;
@@ -32,4 +32,22 @@
 
 .container.open {
     opacity: 1;
+}
+
+@media (max-width: 1000px) {
+    .window {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 800px) {
+    .window {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .window {
+        padding: 20px;
+    }
 }

@@ -3,14 +3,24 @@ import styles from './apartments.module.css';
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Keyboard } from "swiper/modules";
+import Link from 'next/link';
 
 const images = [
-    "/images/apartments/ap1.png",
-    "/images/apartments/ap2.png",
-    "/images/apartments/ap3.png",
-    "/images/apartments/ap4.png",
-    "/images/apartments/ap5.png",
-    "/images/apartments/ap6.png"
+    "/images/apartments/apartments/ap1.jpg",
+    "/images/apartments/apartments/ap2.jpg",
+    "/images/apartments/apartments/ap3.jpg",
+    "/images/apartments/apartments/ap4.jpg",
+    "/images/apartments/apartments/ap5.jpg",
+    "/images/apartments/apartments/ap6.jpg"
+]
+
+const imagesResized = [
+    "/images/apartments/apartments_resized/ap1.jpg",
+    "/images/apartments/apartments_resized/ap2.jpg",
+    "/images/apartments/apartments_resized/ap3.jpg",
+    "/images/apartments/apartments_resized/ap4.jpg",
+    "/images/apartments/apartments_resized/ap5.jpg",
+    "/images/apartments/apartments_resized/ap6.jpg"
 ]
 
 export default function ApartmentsBlock() {
@@ -31,9 +41,9 @@ export default function ApartmentsBlock() {
                 <p className={styles.description}>На этаже представлено 6 различных планировок. Такое разнообразие форматов позволяет выбрать оптимальное решение под разные сценарии жизни — от компактных пространств до более просторных квартир с функциональным зонированием.</p>
                 <button className={styles.button} onClick={() => setIsActive(true)}><p>Просмотреть квартиры</p></button>
             </div>
-            <div className={styles.image}>
-                <Image src='/images/apartments/block.jpg' alt="план блока" fill sizes='1000px' style={{ objectFit: "contain", objectPosition: "center" }}/>
-            </div>
+            <Link href={'/images/apartments/apartments/block.png'} target='_blank' className={styles.image}>
+                <Image src='/images/apartments/apartments_resized/block.png' alt="план блока" fill sizes='1000px' style={{ objectFit: "contain", objectPosition: "center" }} />
+            </Link>
             {isActive && (
                 <div className={styles.popup} onClick={close}>
                     <button className={styles.closeButton} onClick={close}>
@@ -55,13 +65,15 @@ export default function ApartmentsBlock() {
                         >
                             {images.map((src, i) => (
                                 <SwiperSlide key={i} className={styles.swiperSlide}>
-                                    <Image
-                                        fill
-                                        src={src}
-                                        alt="планировки квартир"
-                                        className={styles.popupImage}
-                                        sizes='2000px'
-                                    />
+                                    <Link href={src} target='_blank'>
+                                        <Image
+                                            fill
+                                            src={imagesResized[i]}
+                                            alt="планировки квартир"
+                                            className={styles.popupImage}
+                                            sizes='1000px'
+                                        />
+                                    </Link>
                                 </SwiperSlide>
                             ))}
                         </Swiper>

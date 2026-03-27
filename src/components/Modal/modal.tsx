@@ -14,6 +14,26 @@ type ModalProps = {
 export default function Modal({ isOpen, onClose, children }: ModalProps) {
     const lenis = useLenis()
     const containerRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        if (!lenis) return;
+
+        if (isOpen) {
+            lenis.stop();
+            const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+            document.body.style.overflow = "hidden";
+            document.body.style.paddingRight = `${scrollBarWidth+1}px`;
+        } else {
+            lenis.start();
+            document.body.style.overflow = "";
+            document.body.style.paddingRight = "0";
+        }
+
+        return () => {
+            lenis.start();
+        };
+    }, [isOpen]);
+
     useEffect(() => {
         const handleEsc = (e: KeyboardEvent) => {
             if (e.key === "Escape") onClose();

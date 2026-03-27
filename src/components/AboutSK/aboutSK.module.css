@@ -1,10 +1,11 @@
 .container {
   width: 100%;
-  column-count: 2;
-  column-gap: 80px;
+  
 }
 
 .textBlock {
+  column-count: 2;
+  column-gap: 80px;
 }
 
 .mainTitle {
