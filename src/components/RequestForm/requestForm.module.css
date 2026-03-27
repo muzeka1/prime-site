@@ -8,6 +8,7 @@
 }
 
 .input {
+    width: 70%;
     border-bottom: 2px var(--color-secondary) solid;
 }
 
