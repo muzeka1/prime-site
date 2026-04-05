@@ -12,16 +12,14 @@ export default function GeneralInfoSection() {
     return (
         <>
             <div className={styles.container}>
-                <LineUp />
-                <LineDown />
                 <h2 className={styles.title}>
                     Квартиры от застройщика в ЖК «Притяжение» от 79 000 ₽/м² — рассрочка до 66 месяцев без банков и процентов
                 </h2>
                 <ul className={styles.list}>
-                    <li className={styles.listItem}>——  Одобрено Минстроем</li>
-                    <li className={styles.listItem}>——  Собственное производство ЖБИ</li>
-                    <li className={styles.listItem}>——  На рынке с 1967 года</li>
-                    <li className={styles.listItem}>——  80 объектов уже сдано</li>
+                    <li className={styles.listItem}>— Одобрено Минстроем</li>
+                    <li className={styles.listItem}>—  Собственное производство ЖБИ</li>
+                    <li className={styles.listItem}>—  На рынке с 1967 года</li>
+                    <li className={styles.listItem}>—  80 объектов уже сдано</li>
                 </ul>
 
                 <div className={styles.buttonContainer}>
