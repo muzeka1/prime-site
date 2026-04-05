@@ -34,6 +34,11 @@
     opacity: 1;
 }
 
+.icon {
+    width: 60px;
+    height: 60px;
+}
+
 .cardTitle {
     font-size: 26px;
     color: var(--color-secondary);
@@ -90,6 +95,11 @@
     
     .cardText {
         font-size: 16px;
+    }
+
+    .icon {
+        width: 30px;
+        height: 30px;
     }
 }
 

@@ -2,7 +2,6 @@ import Image from "next/image"
 import styles from "./mainInfo.module.css"
 import { useLenis } from "lenis/react"
 import { useEffect, useRef, useState } from "react"
-import { off } from "process"
 
 export default function MainInfoSection() {
     const containerRef = useRef<HTMLDivElement>(null)
@@ -18,16 +17,16 @@ export default function MainInfoSection() {
     }
 
     useEffect(() => {
-        const handleResize = () => {
-            setWindowWidth(window.innerWidth)
+        const updateWidth = () => {
+          setWindowWidth(window.innerWidth)
         }
-    
-        window.addEventListener('resize', handleResize)
-    
-        return () => {
-            window.removeEventListener('resize', handleResize)
-        }
-    }, [])
+      
+        updateWidth()
+      
+        window.addEventListener("resize", updateWidth)
+      
+        return () => window.removeEventListener("resize", updateWidth)
+      }, [])
 
     useEffect(() => {
         if (!lenis) return
@@ -54,56 +53,56 @@ export default function MainInfoSection() {
         <div className={styles.container} ref={containerRef}>
             <div className={styles.cardsContainer}>
                 <div className={styles.card} ref={(item) => addCardToRef(item)}>
-                    <Image src="/images/icons/construction-site.svg" alt="иконка стройки" width={iconSize} height={iconSize} />
+                    <Image className={styles.icon} src="/images/icons/construction-site.svg" alt="иконка стройки" width={iconSize} height={iconSize} />
                     <div className={styles.cardTextBlock}>
                         <h3 className={styles.cardTitle}>Сдача</h3>
                         <p className={styles.cardText}>IV кв. 2030</p>
                     </div>
                 </div>
                 <div className={styles.card} ref={(item) => addCardToRef(item)}>
-                    <Image src="/images/icons/buildings.svg" alt="иконка зданий" width={iconSize} height={iconSize} />
+                    <Image className={styles.icon} src="/images/icons/buildings.svg" alt="иконка зданий" width={iconSize} height={iconSize} />
                     <div className={styles.cardTextBlock}>
                         <h3 className={styles.cardTitle}>Класс</h3>
                         <p className={styles.cardText}>Бизнес</p>
                     </div>
                 </div>
                 <div className={styles.card} ref={(item) => addCardToRef(item)}>
-                    <Image src="/images/icons/card.svg" alt="иконка карты" width={iconSize} height={iconSize} />
+                    <Image className={styles.icon} src="/images/icons/card.svg" alt="иконка карты" width={iconSize} height={iconSize} />
                     <div className={styles.cardTextBlock}>
                         <h3 className={styles.cardTitle}>Рассрочка</h3>
                         <p className={styles.cardText}>Доступна</p>
                     </div>
                 </div>
                 <div className={styles.card} ref={(item) => addCardToRef(item)}>
-                    <Image src="/images/icons/money.svg" alt="иконка денег" width={iconSize} height={iconSize} />
+                    <Image className={styles.icon} src="/images/icons/money.svg" alt="иконка денег" width={iconSize} height={iconSize} />
                     <div className={styles.cardTextBlock}>
                         <h3 className={styles.cardTitle}>Взнос</h3>
-                        <p className={styles.cardText}>От 10%</p>
+                        <p className={styles.cardText}>500 тыс. ₽</p>
                     </div>
                 </div>
                 <div className={styles.card} ref={(item) => addCardToRef(item)}>
-                    <Image src="/images/icons/wall.svg" alt="иконка стены" width={iconSize} height={iconSize} />
+                    <Image className={styles.icon} src="/images/icons/wall.svg" alt="иконка стены" width={iconSize} height={iconSize} />
                     <div className={styles.cardTextBlock}>
                         <h3 className={styles.cardTitle}>Технология</h3>
                         <p className={styles.cardText}>Монолит</p>
                     </div>
                 </div>
                 <div className={styles.card} ref={(item) => addCardToRef(item)}>
-                    <Image src="/images/icons/measure.svg" alt="иконка линейки" width={iconSize} height={iconSize} />
+                    <Image className={styles.icon} src="/images/icons/measure.svg" alt="иконка линейки" width={iconSize} height={iconSize} />
                     <div className={styles.cardTextBlock}>
                         <h3 className={styles.cardTitle}>Площади</h3>
                         <p className={styles.cardText}>45–59 м²</p>
                     </div>
                 </div>
                 <div className={styles.card} ref={(item) => addCardToRef(item)}>
-                    <Image src="/images/icons/graph.svg" alt="иконка графика" width={iconSize} height={iconSize} />
+                    <Image className={styles.icon} src="/images/icons/graph.svg" alt="иконка графика" width={iconSize} height={iconSize} />
                     <div className={styles.cardTextBlock}>
                         <h3 className={styles.cardTitle}>Доходность</h3>
                         <p className={styles.cardText}>До 12%</p>
                     </div>
                 </div>
                 <div className={styles.card} ref={(item) => addCardToRef(item)}>
-                    <Image src="/images/icons/building-floor.svg" alt="иконка здания" width={iconSize} height={iconSize} />
+                    <Image className={styles.icon} src="/images/icons/building-floor.svg" alt="иконка здания" width={iconSize} height={iconSize} />
                     <div className={styles.cardTextBlock}>
                         <h3 className={styles.cardTitle}>Этажность</h3>
                         <p className={styles.cardText}>16 и 18</p>

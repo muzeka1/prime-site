@@ -13,7 +13,7 @@ export default function GeneralInfoSection() {
         <>
             <div className={styles.container}>
                 <h2 className={styles.title}>
-                    Квартиры от застройщика в ЖК «Притяжение» от 79 000 ₽/м² — рассрочка до 66 месяцев без банков и процентов
+                    Квартиры от застройщика в ЖК «Притяжение» от 114 000 ₽/м² — рассрочка до 60 месяцев без банков и процентов
                 </h2>
                 <ul className={styles.list}>
                     <li className={styles.listItem}>— Одобрено Минстроем</li>
