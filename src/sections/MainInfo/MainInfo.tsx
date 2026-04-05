@@ -92,7 +92,7 @@ export default function MainInfoSection() {
                     <Image src="/images/icons/measure.svg" alt="иконка линейки" width={iconSize} height={iconSize} />
                     <div className={styles.cardTextBlock}>
                         <h3 className={styles.cardTitle}>Площади</h3>
-                        <p className={styles.cardText}>35–120 м²</p>
+                        <p className={styles.cardText}>45–59 м²</p>
                     </div>
                 </div>
                 <div className={styles.card} ref={(item) => addCardToRef(item)}>
