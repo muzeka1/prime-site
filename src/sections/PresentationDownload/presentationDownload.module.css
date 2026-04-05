@@ -1,0 +1,88 @@
+.container {
+    padding: 80px;
+    position: relative;
+}
+
+.title {
+    font-size: 80px;
+    line-height: 1;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.description {
+    max-width: 80%;
+    font-family: var(--font-aeonik-regular);
+    font-size: 24px;
+    color: var(--color-secondary);
+    margin-bottom: 40px;
+}
+
+.button {
+    font-family: var(--font-aeonik-regular);
+    border: 2px var(--color-accent) solid;
+    padding: 10px 40px;
+    font-size: 24px;
+    transition: border .4s ease-in-out, color .4s ease-in-out;
+}
+
+.button:hover {
+    border: 2px var(--color-primary) solid;
+    color: var(--color-primary);
+}
+
+.button span {
+    font-size: 16px;
+}
+
+@media (max-width: 850px) {
+    .container {
+        padding: 40px;
+    }
+    .title {
+        font-size: 60px;
+    }
+    
+    .description {
+        font-size: 20px;
+    }
+
+    .container {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .title {
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+    
+    .description {
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+
+    .button {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .title {
+        font-size: 36px;
+    }
+    
+    .description {
+        font-size: 14px;
+    }
+
+    .button {
+        font-size: 18px;
+    }
+
+    .button span {
+        font-size: 14px;
+    }
+}
+

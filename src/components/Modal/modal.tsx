@@ -20,13 +20,8 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
 
         if (isOpen) {
             lenis.stop();
-            const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
-            document.body.style.overflow = "hidden";
-            document.body.style.paddingRight = `${scrollBarWidth+1}px`;
         } else {
             lenis.start();
-            document.body.style.overflow = "";
-            document.body.style.paddingRight = "0";
         }
 
         return () => {

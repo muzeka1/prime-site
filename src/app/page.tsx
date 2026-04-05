@@ -14,6 +14,9 @@ import styles from "./page.module.css";
 import { useCallback, useEffect, useRef } from "react";
 import AboutSKSection from "../sections/AboutSK/aboutSKSection";
 import FooterSection from "../sections/Footer/footer";
+import MainInfoSection from "../sections/MainInfo/MainInfo";
+import PresentationDownloadSection from "../sections/PresentationDownload/PresentationDownload";
+import GeneralInfoSection from "../sections/GeneralInfo/GeneralInfo";
 
 type SectionEl = HTMLElement | null;
 type SnapAlign = 'start' | 'end';
@@ -305,10 +308,14 @@ export default function Home() {
         <section
           // ref={(el) => setSectionRef(el, 0)}
         >
+          
           <Header aboutSKSectionRef={aboutSKSectionRef}></Header></section>
         <section
           // ref={(el) => setSectionRef(el, 1)}
         >
+          <GeneralInfoSection/>
+          <MainInfoSection/>
+          <PresentationDownloadSection/>
           <AboutSection></AboutSection>
           <NumbersSection></NumbersSection>
           <InfoSection></InfoSection>
@@ -328,6 +335,7 @@ export default function Home() {
           <ApartmentsBlock />
           <AboutSKSection ref={aboutSKSectionRef} />
           <FooterSection/>
+          
         </section>
       </main>
     </>

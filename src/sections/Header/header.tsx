@@ -80,7 +80,8 @@ export default function Header({ aboutSKSectionRef }: HeaderProps) {
       <div className={styles.image} ref={bgRef}></div>
       <div className={styles.hero_text_container}>
         <div className={styles.hero_text} ref={titleRef}>
-          <h1>ЖК Притяжение
+          <h1>
+            ЖК Притяжение
           </h1>
         </div>
       </div>

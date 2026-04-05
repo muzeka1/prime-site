@@ -124,8 +124,8 @@
   width: 80vw;
   top: 0;
   right: 0;
-  transform: translateX(200%);
-  transition: transform .7s ease-out;
+  transform: translateX(101%);
+  transition: transform .3s ease-in-out;
   background-color: var(--color-primary-dark);
 }
 

@@ -1,0 +1,144 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primary-dark);
+    padding: 80px;
+    width: 100%;
+}
+
+.cardsContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    flex-basis: 23%;
+    background-color: var(--color-accent-light);
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transform: translateY(500%);
+    opacity: 0;
+    transition: transform .6s ease-in-out, opacity 1s ease-in-out;
+}
+
+
+.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.cardTitle {
+    font-size: 26px;
+    color: var(--color-secondary);
+}
+
+.cardText {
+    font-family: var(--font-aeonik-regular);
+    font-size: 20px;
+    color: var(--color-primary);
+}
+
+@media (max-width: 1350px) {
+    .card {
+        flex-basis: 32%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .card {
+        flex-basis: 48%;
+    }
+}
+
+@media (max-width: 800px) {
+    .container {
+        padding: 40px;
+    }
+
+    .card {
+        flex-basis: 48%;
+    }
+
+    .cardTitle {
+        font-size: 22px;
+    }
+    
+    .cardText {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 650px) {
+    .container {
+        padding: 20px;
+    }
+
+    .card {
+        flex-basis: 48%;
+    }
+
+    .cardTitle {
+        font-size: 20px;
+    }
+    
+    .cardText {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 550px) {
+    .container {
+        padding: 10px;
+    }
+
+    .cardsContainer {
+        gap: 10px;
+    }
+
+    .card {
+        flex-basis: 48%;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .cardTitle {
+        font-size: 20px;
+    }
+    
+    .cardText {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 450px) {
+    .container {
+        padding: 10px;
+    }
+
+    .cardsContainer {
+        gap: 5px;
+    }
+
+    .card {
+        flex-basis: 48%;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .cardTitle {
+        font-size: 16px;
+    }
+    
+    .cardText {
+        font-size: 12px;
+    }
+}
+
