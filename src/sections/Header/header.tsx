@@ -41,7 +41,6 @@ export default function Header({ aboutSKSectionRef }: HeaderProps) {
 
   useEffect(() => {
     const updateWidth = () => {
-      console.log("window.innerWidth =", window.innerWidth)
       setWindowWidth(window.innerWidth)
     }
 
