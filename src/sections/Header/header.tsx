@@ -40,14 +40,15 @@ export default function Header({ aboutSKSectionRef }: HeaderProps) {
   };
 
   useEffect(() => {
-    function handleResize() {
+    const updateWidth = () => {
+      console.log("window.innerWidth =", window.innerWidth)
       setWindowWidth(window.innerWidth)
     }
 
-    handleResize()
-    window.addEventListener('resize', handleResize)
+    updateWidth()
+    window.addEventListener("resize", updateWidth)
 
-    return () => window.removeEventListener('resize', handleResize)
+    return () => window.removeEventListener("resize", updateWidth)
   }, [])
 
   useEffect(() => {
@@ -77,7 +78,19 @@ export default function Header({ aboutSKSectionRef }: HeaderProps) {
   return (
     <div className={styles.container} ref={container}>
 
-      <div className={styles.image} ref={bgRef}></div>
+      {/* <div className={styles.image} ref={bgRef}></div> */}
+      <video
+        key={windowWidth < 800 ? "mobile" : "desktop"}
+        className={styles.image}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        src={windowWidth < 800
+          ? "/video/background9x16.mp4"
+          : "/video/background16x9.mp4"}>
+      </video>
       <div className={styles.hero_text_container}>
         <div className={styles.hero_text} ref={titleRef}>
           <h1>
@@ -93,7 +106,7 @@ export default function Header({ aboutSKSectionRef }: HeaderProps) {
           </Link>
 
           <nav className={styles.navPanel}>
-            <button onClick={()=> scrollToTop()} className={styles.navButton}>Главная</button>
+            <button onClick={() => scrollToTop()} className={styles.navButton}>Главная</button>
             <button onClick={(e) => scrollToAboutSK(e)} className={styles.navButton}>О компании</button>
             <button onClick={() => setContactsIsOpen(true)} className={styles.navButton}>Контакты</button>
           </nav>
