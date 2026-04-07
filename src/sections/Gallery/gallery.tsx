@@ -111,7 +111,7 @@ export default function GallerySection() {
                         >
                             {images.map((src, i) => (
                                 <SwiperSlide key={i} className={styles.swiperSlide}>
-                                    <Link target="_blank" href={src}>
+                                    <Link target="_blank" href={src} className={styles.imageLink}>
                                         <Image
                                             fill
                                             src={src}

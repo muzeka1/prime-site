@@ -85,7 +85,7 @@ export default function Header({ aboutSKSectionRef }: HeaderProps) {
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
         src={windowWidth < 800
           ? "/video/background9x16.mp4"
           : "/video/background16x9.mp4"}>

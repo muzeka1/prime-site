@@ -95,6 +95,7 @@ section {
   animation: zoom 20s ease-in-out infinite alternate;
 }
 
+
 .swiper-button-next,
 .swiper-button-prev {
   color: var(--accent-color-light) !important;

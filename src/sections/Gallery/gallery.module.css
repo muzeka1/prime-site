@@ -110,10 +110,19 @@
   width: 85%;
   height: 85%;
   overflow: hidden;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageLink {
+  position: relative;
+  display: flex;
+  width: 80%;
+  height: 80%;
 }
 
 .popupImage {
-  max-height: 85vh;
   object-fit: contain;
 }
 
