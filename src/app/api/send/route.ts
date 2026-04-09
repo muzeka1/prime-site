@@ -89,7 +89,7 @@ export async function POST(req: Request) {
     const { data, error } = await resend.emails.send({
       // Быстрый тест (потом замените на адрес на вашем домене)
       from: "СК ПРАЙМ <onboarding@resend.dev>",
-      to: ["abdullahalitoff@gmail.com"],
+      to: ["skprime.mhk@mail.ru"],
       subject: "Новая заявка САЙТ СК ПРАЙМ",
       text: `Телефон: ${cleanedPhone}`,
     });
