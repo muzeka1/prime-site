@@ -29,7 +29,7 @@ export async function POST(req: Request) {
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
-      host: "smtp.gmail.com",
+      host: "smtp.reg.ru",
       port: 465,
       secure: false,
       auth: {
