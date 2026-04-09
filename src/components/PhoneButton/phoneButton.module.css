@@ -1,7 +1,7 @@
 .button {
     position: fixed;
     z-index: 1000;
-    bottom: 5%;
+    bottom: 50px;
     right: 3%;
     background-color: var(--color-primary);
     border-radius: 12px;
