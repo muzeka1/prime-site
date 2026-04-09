@@ -30,7 +30,7 @@ export async function POST(req: Request) {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       host: "smtp.gmail.com",
-      port: 587,
+      port: 465,
       secure: false,
       auth: {
         user: process.env.EMAIL_USER,
@@ -40,7 +40,8 @@ export async function POST(req: Request) {
 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
-      to: "skprime.mhk@mail.ru",
+      // to: "skprime.mhk@mail.ru",
+      to: "abdullahalitoff@gmail.com",
       subject: "Новая заявка САЙТ СК ПРАЙМ",
       text: `Телефон: ${cleanedPhone}`,
     });
