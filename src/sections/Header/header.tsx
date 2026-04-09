@@ -15,7 +15,7 @@ interface HeaderProps {
 }
 
 export default function Header({ aboutSKSectionRef }: HeaderProps) {
-  const bgRef = useRef<HTMLDivElement>(null)
+  const bgRef = useRef<HTMLVideoElement>(null)
   const container = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null)
   const lenis = useLenis();
@@ -79,6 +79,7 @@ export default function Header({ aboutSKSectionRef }: HeaderProps) {
 
       {/* <div className={styles.image} ref={bgRef}></div> */}
       <video
+        ref={bgRef}
         key={windowWidth < 800 ? "mobile" : "desktop"}
         className={styles.image}
         autoPlay

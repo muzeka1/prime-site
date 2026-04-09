@@ -17,6 +17,7 @@ import FooterSection from "../sections/Footer/footer";
 import MainInfoSection from "../sections/MainInfo/MainInfo";
 import PresentationDownloadSection from "../sections/PresentationDownload/PresentationDownload";
 import GeneralInfoSection from "../sections/GeneralInfo/GeneralInfo";
+import PhoneButton from "../components/PhoneButton/PhoneButton";
 
 type SectionEl = HTMLElement | null;
 type SnapAlign = 'start' | 'end';
@@ -304,7 +305,8 @@ export default function Home() {
       <ReactLenis root options={{ lerp: 0.05, syncTouch: true }} />
 
       <main className={styles.main}>
-        <ScrollToTopButton></ScrollToTopButton>
+        <PhoneButton/>
+        <ScrollToTopButton/>
         <section
           // ref={(el) => setSectionRef(el, 0)}
         >

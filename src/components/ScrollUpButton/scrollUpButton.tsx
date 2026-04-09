@@ -38,7 +38,7 @@ export default function ScrollToTopButton() {
         onClick={scrollToTop}
         className={styles.button}
       >
-        <Image src={"/images/arrowUp.svg"} alt="стрелка вверх" width={16} height={16}></Image>
+        <Image src={"/images/arrowUp.svg"} alt="стрелка вверх" width={32} height={32}></Image>
       </button>
     )
   );
