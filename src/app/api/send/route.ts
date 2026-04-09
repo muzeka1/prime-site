@@ -28,10 +28,9 @@ export async function POST(req: Request) {
     }
 
     const transporter = nodemailer.createTransport({
-      service: "gmail",
-      host: "smtp.reg.ru",
+      host: "mail.hosting.reg.ru",
       port: 465,
-      secure: false,
+      secure: true,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
@@ -40,8 +39,7 @@ export async function POST(req: Request) {
 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
-      // to: "skprime.mhk@mail.ru",
-      to: "abdullahalitoff@gmail.com",
+      to: "skprime.mhk@mail.ru",
       subject: "Новая заявка САЙТ СК ПРАЙМ",
       text: `Телефон: ${cleanedPhone}`,
     });
