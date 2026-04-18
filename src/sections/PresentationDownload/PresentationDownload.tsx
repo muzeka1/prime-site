@@ -5,7 +5,7 @@ import LineDown from "../../components/DecorLines/LineDown"
 
 export default function PresentationDownloadSection() {
 
-    const phone = "89882233333";
+    const phone = "79882233333";
     const message = "Получить планировки на ЖК ПРИТЯЖЕНИЕ";
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     return (
