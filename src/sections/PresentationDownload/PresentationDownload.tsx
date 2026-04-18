@@ -14,9 +14,9 @@ export default function PresentationDownloadSection() {
             <div className={styles.description}>
                 Подробная информация о комплексе, технические характеристики, инфраструктура района и условия рассрочки в одном PDF-файле.
             </div>
-            <Link href={url} target="_blank" rel="noopener noreferrer">
-                <button className={styles.button} >Получить презентацию</button>
-            </Link>
+            <a href={url} target="_blank" rel="noopener noreferrer">
+                <button className={styles.button}>Получить презентацию</button>
+            </a>
         </div>
     )
 }
