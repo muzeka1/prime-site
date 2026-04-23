@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 
+
 export async function POST(req: Request) {
   try {
     const { phone } = await req.json();
@@ -44,7 +45,7 @@ export async function POST(req: Request) {
       text: `Телефон: ${cleanedPhone}`,
     });
 
-    return Response.json({ success: true, message: "Письмо отправлено" });
+    return Response.json({ success: true, message: "Спасибо! Мы свяжемся с вами в ближайшее время." });
   } catch (error) {
     console.error("Ошибка отправки письма:", error);
 

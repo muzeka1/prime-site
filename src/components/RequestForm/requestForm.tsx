@@ -66,11 +66,12 @@ export default function RequestForm() {
 
       const data = await res.json();
 
-      if (!res.ok) {
-        throw new Error(data.message || "Ошибка при отправке");
+      if (!res.ok || !data.success) {
+        setError(data.message || "Ошибка при отправке");
+        return;
       }
 
-      setSuccess("Заявка успешно отправлена");
+      setSuccess(data.message);
       setPhone("");
     } catch (err) {
       setError(
@@ -101,10 +102,10 @@ export default function RequestForm() {
         {loading ? "Отправка..." : "Отправить"}
       </button>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      {success && <p style={{ color: "green" }}>{success}</p>}
+      {error && <p className={styles.error}>{error}</p>}
+      {success && <p className={styles.success}>{success}</p>}
 
-      <p>
+      <p className={styles.dataApprove}>
         Нажимая кнопку Отправить вы соглашаетесь на обработку ваших
         персональных данных
       </p>

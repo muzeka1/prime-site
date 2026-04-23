@@ -12,6 +12,9 @@ export default function Contacts() {
                 <p>Адрес: </p>
                 <Link className={styles.link} target="_blank" href={"https://yandex.ru/maps?whatshere%5Bpoint%5D=47.497837857210186%2C42.975729633378116&whatshere%5Bzoom%5D=19.04515&ll=47.497837857210186%2C42.975729632996945&z=19.04515&si=rashid.askhabov1"}>улица Абубакарова, 26А <br/>Махачкала, Республика Дагестан</Link>
             </div>
+            <div className={styles.socialLinks}>
+                
+            </div>
             <div className="flex items-center justify-center">
                 <div
                     style={{ position: "relative", overflow: "hidden" }}>
