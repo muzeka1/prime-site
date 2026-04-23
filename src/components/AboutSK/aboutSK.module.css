@@ -33,6 +33,10 @@
     column-gap: 20px;
   }
 
+  .textBlock {
+    column-gap: 40px;
+  }
+
   .mainTitle {
     font-size: 28px;
   }
@@ -49,6 +53,10 @@
 @media (max-width: 600px) {
   .container {
     column-gap: 10px;
+  }
+
+  .textBlock {
+    column-gap: 14px;
   }
 
   .mainTitle {
