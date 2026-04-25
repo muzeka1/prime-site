@@ -164,7 +164,7 @@
 .phoneLink {
   font-family: var(--font-aeonik-regular);
   font-size: 32px;
-  padding-top: 40vh;
+  margin-top: 35vh;
   color: var(--color-accent-light);
   position: relative;
 }
@@ -182,7 +182,7 @@
 .socialLinks {
   display: flex;
   gap: 20px;
-  padding-top: 20px;
+  margin-top: 20px;
   color: var(--color-accent-light);
 }
 
