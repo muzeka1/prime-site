@@ -50,6 +50,21 @@
     border-radius: 20px;
 }
 
+.socialLinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.icon {
+    transition: color .4s ease-in-out;
+    cursor: pointer;
+}
+.icon:hover {
+    color: var(--color-accent);
+}
+
 @media (max-width: 1000px) {
     .container {
         font-size: 18px;

@@ -17,7 +17,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 20px 80px;
+  padding: 20px 40px;
   z-index: 100;
 }
 
@@ -37,6 +37,9 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero_text {
@@ -60,10 +63,6 @@
 }
 
 .image {
-  /* background-image: url("/images/Prit_01.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; */
   object-fit: cover;
   object-position: center;
   filter: brightness(0.5);
@@ -101,6 +100,16 @@
   z-index: 10;
 }
 
+.navRequestButton {
+  transform:  translateY(-200px);
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform .4s ease-in-out;
+}
+
+.requestButtonActive {
+  transform: translateY(0);
+}
+
 .burgerButton {
   display: none;
   cursor: pointer;
@@ -124,6 +133,7 @@
   align-items: start;
   position: absolute;
   width: 80vw;
+  height: 100vh;
   top: 0;
   right: 0;
   transform: translateX(101%);
@@ -138,6 +148,42 @@
 .burgerMenuButton {
   font-size: 26px;
   padding: 10px 0;
+  position: relative;
+}
+
+.burgerMenuButton::after {
+  content: "";
+  background-color: var(--color-accent);
+  width: 100%;
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  height: 4px;
+}
+
+.phoneLink {
+  font-family: var(--font-aeonik-regular);
+  font-size: 32px;
+  padding-top: 40vh;
+  color: var(--color-accent-light);
+  position: relative;
+}
+.phoneLink::after {
+  content: "";
+  background-color: var(--color-accent);
+  width: 100%;
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  height: 4px;
+}
+
+
+.socialLinks {
+  display: flex;
+  gap: 20px;
+  padding-top: 20px;
+  color: var(--color-accent-light);
 }
 
 .closeBurgerMenuButton {
@@ -171,6 +217,8 @@
   animation: 1s arrowDown ease-in-out infinite;
 }
 
+
+
 @keyframes arrowDown {
   0% {
     transform: translate(-50%, 0);
@@ -196,6 +244,10 @@
 
 @media (max-width: 650px) {
   .navPanel {
+    display: none;
+  }
+
+  .navRequestButton {
     display: none;
   }
 
