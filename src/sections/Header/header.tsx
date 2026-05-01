@@ -22,12 +22,26 @@ export default function Header() {
   const [windowWidth, setWindowWidth] = useState(0)
   const [isRequestButtonActive, setIsRequestButtonActive] = useState(false)
 
+  // const scrollToSection = (id: string) => {
+  //   const el = document.getElementById(id);
+
+  //   if (el && lenis) {
+  //     lenis.scrollTo(el.offsetTop, {
+  //       duration: 1.2,
+  //     });
+  //   }
+  // };
+
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
-
+  
     if (el && lenis) {
-      lenis.scrollTo(el.offsetTop, {
-        duration: 1.2,
+      lenis.resize(); 
+
+      requestAnimationFrame(() => {
+        lenis.scrollTo(el, {
+          duration: 1.2,
+        });
       });
     }
   };
