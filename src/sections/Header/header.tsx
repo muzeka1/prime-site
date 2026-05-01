@@ -26,11 +26,23 @@ export default function Header() {
     const el = document.getElementById(id);
 
     if (el && lenis) {
-      lenis.scrollTo(el, {
+      lenis.scrollTo(el.offsetTop, {
         duration: 1.2,
       });
     }
   };
+
+  useEffect(() => {
+    if (!lenis) return;
+  
+    function raf(time: number) {
+      if (!lenis) return;
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+  
+    requestAnimationFrame(raf);
+  }, [lenis]);
 
   const scrollToTop = () => {
     lenis?.scrollTo(0)
