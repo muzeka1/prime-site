@@ -29,6 +29,7 @@ export default function Header() {
       lenis.scrollTo(el, {
         offset: -80,
         duration: 1.2,
+        immediate: false,
       });
     }
   };
