@@ -11,7 +11,6 @@ import ApartmentsBlock from "../sections/Apartments/apartments";
 import ScrollToTopButton from "../components/ScrollUpButton/scrollUpButton";
 
 import styles from "./page.module.css";
-import { useCallback, useEffect, useRef } from "react";
 import AboutSKSection from "../sections/AboutSK/aboutSKSection";
 import FooterSection from "../sections/Footer/footer";
 import MainInfoSection from "../sections/MainInfo/MainInfo";
@@ -19,88 +18,7 @@ import PresentationDownloadSection from "../sections/PresentationDownload/Presen
 import GeneralInfoSection from "../sections/GeneralInfo/GeneralInfo";
 import PhoneButton from "../components/PhoneButton/PhoneButton";
 
-type SectionEl = HTMLElement | null;
-type SnapAlign = 'start' | 'end';
-type ScrollDirection = 'down' | 'up';
-
-const WHEEL_THRESHOLD = 4;
-const TOUCH_THRESHOLD = 10;
-const EDGE_TOLERANCE = 50;
-const SNAP_DURATION = 2;
-const SNAP_COOLDOWN = 100;
-
-
 export default function Home() {
-
-  const lenis = useLenis();
-
-  const sectionsRef = useRef<HTMLElement[]>([]);
-  const aboutSKSectionRef = useRef<HTMLElement | null>(null)
-  const currentIndex = useRef(0);
-  const isSnapping = useRef(false);
-  const lastSnapAt = useRef(0);
-
-
-  const canTriggerSnap = useCallback(() => {
-    const now = performance.now();
-
-    if (isSnapping.current) return false;
-    if (now - lastSnapAt.current < SNAP_COOLDOWN) return false;
-
-    return true;
-  }, []);
-
-  const getSectionSnapPosition = useCallback((
-    section: HTMLElement,
-    align: SnapAlign
-  ) => {
-    const sectionTop = section.offsetTop;
-
-    if (align === 'start') {
-      return sectionTop;
-    }
-
-    if (section.offsetHeight <= window.innerHeight) {
-      return sectionTop;
-    }
-
-    return Math.max(
-      0,
-      section.offsetTop + section.offsetHeight - window.innerHeight
-    );
-  }, []);
-
-  const goToSection = useCallback((
-    index: number,
-    align: SnapAlign = 'start'
-  ) => {
-    if (!lenis) return;
-    if (!canTriggerSnap()) return;
-    if (index < 0 || index >= sectionsRef.current.length) return;
-
-    const target = sectionsRef.current[index];
-    if (!target) return;
-
-    const targetY = getSectionSnapPosition(target, align);
-
-    isSnapping.current = true;
-    lastSnapAt.current = performance.now();
-
-    lenis.scrollTo(targetY, {
-      duration: SNAP_DURATION,
-      lock: true,
-      force: true,
-      lerp: 0.03,
-      onComplete: () => {
-        currentIndex.current = index;
-
-        requestAnimationFrame(() => {
-          isSnapping.current = false;
-        });
-      },
-    });
-  }, [canTriggerSnap, getSectionSnapPosition, lenis]);
-
   return (
     <>
       <ReactLenis root options={{ lerp: 0.05, syncTouch: true }} />
