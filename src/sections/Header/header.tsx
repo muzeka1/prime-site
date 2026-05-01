@@ -34,29 +34,14 @@ export default function Header() {
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
-  
-    if (el && lenis) {
-      lenis.resize(); 
 
-      requestAnimationFrame(() => {
-        lenis.scrollTo(el, {
-          duration: 1.2,
-        });
+    if (el && lenis) {
+      lenis.scrollTo(el, {
+        duration: 1.2,
       });
     }
   };
 
-  useEffect(() => {
-    if (!lenis) return;
-  
-    function raf(time: number) {
-      if (!lenis) return;
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-  
-    requestAnimationFrame(raf);
-  }, [lenis]);
 
   const scrollToTop = () => {
     lenis?.scrollTo(0)
@@ -148,7 +133,7 @@ export default function Header() {
           </nav>
 
 
-          <button onClick={()=>setRequestFormIsOpen(true)} className={`${styles.navButton} ${styles.navRequestButton} ${isRequestButtonActive ? styles.requestButtonActive : ""}`}>
+          <button onClick={() => setRequestFormIsOpen(true)} className={`${styles.navButton} ${styles.navRequestButton} ${isRequestButtonActive ? styles.requestButtonActive : ""}`}>
             Оставить заявку
           </button>
 
@@ -177,6 +162,13 @@ export default function Header() {
                   className={styles.burgerMenuButton}
                 >О компании</button>
 
+                <button
+                  onClick={() => {
+                    setIsOpenNavMenu(false)
+                    scrollToSection("apartments")
+                  }}
+                  className={styles.burgerMenuButton}>
+                  Квартиры</button>
                 <button onClick={() => {
                   setIsOpenNavMenu(false)
                   setContactsIsOpen(true)
@@ -191,7 +183,6 @@ export default function Header() {
                   className={styles.burgerMenuButton}
                 >Оставить заявку
                 </button>
-                <button onClick={() => scrollToSection("apartments")} className={styles.burgerMenuButton}>Квартиры</button>
                 <Link className={styles.phoneLink} href={"tel:+79882233333"} target="_blank">+7 988 223-33-33</Link>
                 <div className={styles.socialLinks}>
                   <a href="https://www.instagram.com/prime.development__?igsh=ZHl6eDViNjljZnlq" target="_blank">
