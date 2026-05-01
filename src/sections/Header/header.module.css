@@ -116,6 +116,11 @@
   padding: 14px;
   background-color: var(--color-primary);
   border-radius: 10px;
+  transition: background-color .3s ease-in-out;
+}
+
+.burgerButton:hover {
+  background-color: var(--color-secondary);
 }
 
 .button {
@@ -231,6 +236,20 @@
   }
 }
 
+@media (max-width: 1000px) {
+  .navPanel {
+    display: none;
+  }
+
+  .navRequestButton {
+    display: none;
+  }
+
+  .burgerButton {
+    display: block;
+  }
+}
+
 @media (max-width: 800px) {
   .nav_bar_container {
     padding: 20px;
@@ -243,17 +262,6 @@
 }
 
 @media (max-width: 650px) {
-  .navPanel {
-    display: none;
-  }
-
-  .navRequestButton {
-    display: none;
-  }
-
-  .burgerButton {
-    display: block;
-  }
 
   .hero_text {
     font-size: 45px;

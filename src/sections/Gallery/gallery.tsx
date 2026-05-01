@@ -2,14 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./gallery.module.css";
-import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Keyboard } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import { useLenis } from "lenis/react";
-import Link from "next/link";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import 'react-photo-view/dist/react-photo-view.css';
 
 const images = [
     "/images/renders/1.jpg",
@@ -48,29 +46,35 @@ const imagesResized = [
 ]
 
 export default function GallerySection() {
-    const [active, setActive] = useState<number | null>(null);
     const titleRef = useRef<HTMLHeadingElement>(null);
     const sectionRef = useRef<HTMLDivElement>(null)
     const lenis = useLenis()
-
-    const close = () => setActive(null);
+    const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
         if (!lenis) return
+
+        if (isOpen) {
+            lenis.stop()
+            return
+        }
+
+        lenis.start()
 
         const handleScroll = () => {
             if (!sectionRef.current || !titleRef.current) return
 
             const rect = sectionRef.current.getBoundingClientRect();
             const offset = rect.top - window.innerHeight;
-            const scale = window.innerHeight / Math.abs(offset);
-            titleRef.current.style.transform = `scale(${scale*1.5})`
+            const safeOffset = Math.max(Math.abs(offset), 1);
+            const scale = window.innerHeight / safeOffset;
+            titleRef.current.style.transform = `scale(${scale * 1.5})`
         }
 
         lenis.on("scroll", handleScroll)
         handleScroll()
         return () => lenis.off("scroll", handleScroll)
-    }, [lenis]);
+    }, [lenis, isOpen]);
 
     return (
         <div className={styles.container} ref={sectionRef}>
@@ -78,54 +82,23 @@ export default function GallerySection() {
                 Галерея
             </h2>
 
-            <div className={styles.grid}>
-                {images.map((src, i) => (
-                    <div
-                        key={i}
-                        className={styles.card}
-                        onClick={() => setActive(i)}
-                    >
-                        <Image className={styles.cardImage} src={imagesResized[i]} alt="фото жилого комплекса" fill sizes="700px" />
-                    </div>
-                ))}
-            </div>
-
-            {active !== null && (
-                <div className={styles.popup} onClick={close}>
-                    <button className={styles.closeButton} onClick={close}>
-                        <div className={styles.lineUp}></div>
-                        <div className={styles.lineDown}></div>
-                    </button>
-                    <div
-                        className={styles.sliderWrap}
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        <Swiper
-                            modules={[Navigation, Keyboard]}
-                            navigation
-                            keyboard
-                            initialSlide={active}
-                            spaceBetween={30}
-                            slidesPerView={1}
-                            className={styles.swiper}
-                        >
-                            {images.map((src, i) => (
-                                <SwiperSlide key={i} className={styles.swiperSlide}>
-                                    <Link target="_blank" href={src} className={styles.imageLink}>
-                                        <Image
-                                            fill
-                                            src={src}
-                                            alt="фото жилого комплекса"
-                                            className={styles.popupImage}
-                                        />
-                                    </Link>
-
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
-                    </div>
+            <PhotoProvider
+                onVisibleChange={(visible) => {
+                    setIsOpen(visible);
+                }}>
+                <div className={styles.galleryGrid}>
+                    {images.map((img, i) => (
+                        <PhotoView key={i} src={img}>
+                            <img
+                                src={imagesResized[i]}
+                                alt=""
+                                className={styles.image}
+                                loading="lazy"
+                            />
+                        </PhotoView>
+                    ))}
                 </div>
-            )}
+            </PhotoProvider>
         </div>
     );
 }

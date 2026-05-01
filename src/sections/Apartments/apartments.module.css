@@ -1,4 +1,9 @@
 .container {
+  padding: 0 40px;
+  position: relative;
+}
+
+.previewBlock {
   display: flex;
   align-items: center;
   height: 100vh;
@@ -6,21 +11,65 @@
   position: relative;
 }
 
-.line_up {
+
+.buttonShowFull {
   position: absolute;
-  top: 20px;
-  width: 100%;
-  height: 1px;
-  background-color: var(--color-accent);
+  bottom: 0;
+  width: calc(100% - 80px);
+  height: 44px;
+  background-color: var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color .3s ease-in-out;
 }
 
-.line_down {
-  position: absolute;
-  bottom: 21px;
-  width: 100%;
-  height: 1px;
-  background-color: var(--color-accent);
+.buttonShowFull:hover {
+  background-color: var(--color-secondary);
 }
+
+.apartments {
+  justify-content: center;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 44px;
+  padding-top: 8px;
+}
+
+.apartmentsImage {
+  border: 4px var(--color-secondary) solid;
+  width: calc((100% - 32px) / 3);
+  height: auto;
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+  object-fit: cover;
+  transform: translate(0, -6px);
+  transition: transform 0.3s ease-in-out;
+}
+
+.arrowContainer {
+  transition: transform 0.3s ease-in-out;
+}
+
+.arrow {
+  animation: 1.5s arrow ease-in-out infinite;
+}
+
+@keyframes arrow {
+  0% {
+    transform: translate(0, -4px);
+  }
+  40% {
+    transform: translate(0, 4px);
+  }
+  100% {
+    transform: translate(0, -4px);
+  }
+}
+
+
 
 .text {
   position: relative;
@@ -47,156 +96,37 @@
 }
 
 .image {
-  height: 80%;
-  flex-basis: 50%;
+  height: 80vh;
   display: flex;
   position: relative;
-}
-
-.image img {
-  object-fit: cover;
-}
-
-.button {
-  align-self: center;
-  width: fit-content;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 80px;
-  cursor: pointer;
-}
-
-.button p {
-  font-size: 20px;
-  border: 2px var(--color-accent) solid;
-  padding: 15px;
-  transition: all 0.3s ease-in-out;
-}
-
-.button:hover p {
-  border-color: var(--color-primary-dark);
-  color: var(--color-primary-dark);
-}
-
-
-/* POPUP */
-.popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-aeonik-light);
-  z-index: 1000;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-}
-
-.popup::after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  content: "";
-  display: flex;
-  width: 110%;
-  height: 110%;
-  background-color: var(--color-secondary-dark);
-  opacity: 0.9;
-  filter: blur(5px);
-  z-index: 0;
-}
-
-.popupImageContainer {
-  width: 85%;
-  height: 85%;
-  position: relative;
-}
-
-.sliderWrap {
-  width: 90%;
-  height: 90%;
-  max-width: 1200px;
-}
-
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiperSlide {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.popupImage {
-  max-height: 85vh;
   object-fit: contain;
-}
-
-.closeButton {
-  display: flex;
-  gap: 20px;
-  flex-direction: column;
-  position: absolute;
-  right: 5%;
-  top: 40px;
   cursor: pointer;
 }
 
-.closeButton div {
-  display: flex;
-  width: 40px;
-  height: 4px;
-  z-index: 100;
-  background-color: var(--color-accent-light);
-}
-
-.lineUp {
-  transform: rotate(45deg);
-}
-
-.lineDown {
-  transform: translateY(-24px) rotate(-45deg);
-}
-
-.prev,
-.next {
+.line_up {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 100;
-  font-size: 40px;
-  color: white;
-  background: none;
-  border: none;
-  cursor: pointer;
+  top: 20px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-accent);
 }
 
-.prev {
-  left: 5%;
+.line_down {
+  position: absolute;
+  bottom: 21px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-accent);
 }
 
-.next {
-  right: 5%;
-}
+
 
 @media (max-width: 1000px) {
   .line_up {
     top: 5px;
   }
 
-  .container {
-    flex-direction: column;
-  }
-
   .text {
-    flex-basis: 40%;
     padding: 0 40px;
     justify-content: center;
     align-items: center;
@@ -204,13 +134,11 @@
 
   .image {
     width: 100%;
-    flex-basis: 60%;
     display: flex;
     position: relative;
   }
 
   .title {
-    padding-top: 10px;
     font-size: 40px;
     padding-bottom: 15px;
   }
@@ -224,7 +152,36 @@
   }
 }
 
+@media (max-width: 800px) {
+  .previewBlock {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .text {
+    align-items: start;
+    flex-basis: 30%;
+  }
+
+  .image {
+    height: 70vh;
+    padding-bottom: 40px;
+  }
+  
+  .title {
+    padding-top: 40px;
+  }
+
+  .apartmentsImage {
+    width: calc((100% - 16px) / 2);
+  }
+}
+
+
 @media (max-width: 600px) {
+  .apartmentsImage {
+    width: 100%;
+  }
 
   .text {
     padding: 0 20px;

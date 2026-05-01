@@ -1,13 +1,8 @@
 import styles from "./aboutSKSection.module.css"
 import AboutSK from "../../components/AboutSK/aboutSK"
-import { forwardRef } from "react"
 
-const AboutSKSection = forwardRef<HTMLElement>((props, ref) => {
+export default function AboutSKSection() {
     return (
-        <section ref={ref} className={styles.container}><AboutSK/></section>
+        <section id="aboutSK" className={styles.container}><AboutSK /></section>
     )
-})
-
-AboutSKSection.displayName = "AboutSKSection"
-
-export default AboutSKSection
+}
