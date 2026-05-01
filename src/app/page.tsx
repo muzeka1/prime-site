@@ -2,7 +2,6 @@
 
 import Header from "../sections/Header/header";
 import InfoSection from "../sections/InfoSection/infoSection";
-import { ReactLenis, useLenis } from 'lenis/react'
 import AboutSection from "../sections/About/about";
 import NumbersSection from "../sections/Numbers/numbers";
 import GallerySection from "../sections/Gallery/gallery";
@@ -21,8 +20,6 @@ import PhoneButton from "../components/PhoneButton/PhoneButton";
 export default function Home() {
   return (
     <>
-      <ReactLenis root options={{ lerp: 0.05, syncTouch: true }} />
-
       <main className={styles.main}>
         <PhoneButton/>
         <ScrollToTopButton/>
