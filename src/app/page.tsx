@@ -109,7 +109,7 @@ export default function Home() {
         <PhoneButton/>
         <ScrollToTopButton/>
         <section>
-          <Header aboutSKSectionRef={aboutSKSectionRef}></Header></section>
+          <Header></Header></section>
         <section>
           <GeneralInfoSection/>
           <MainInfoSection/>
