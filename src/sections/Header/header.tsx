@@ -27,9 +27,7 @@ export default function Header() {
 
     if (el && lenis) {
       lenis.scrollTo(el, {
-        offset: -80,
         duration: 1.2,
-        immediate: false,
       });
     }
   };
