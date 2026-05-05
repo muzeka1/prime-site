@@ -34,12 +34,17 @@ export default function Header() {
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
+    console.log(el)
+    console.log(el?.offsetTop)
+    console.log("lenis:", lenis)
 
-    if (el && lenis) {
-      lenis.scrollTo(el, {
-        duration: 1.2,
-      });
-    }
+    if (!el || !lenis) {
+      return
+    };
+
+    lenis.scrollTo(el, {
+      duration: 1.2,
+    });
   };
 
 
@@ -156,16 +161,22 @@ export default function Header() {
                   setIsOpenNavMenu(false)
                 }} className={styles.burgerMenuButton}>Главная</button>
                 <button onClick={() => {
-                  setIsOpenNavMenu(false)
-                  scrollToSection("aboutSK")
+                  setIsOpenNavMenu(false);
+
+                  requestAnimationFrame(() => {
+                    scrollToSection("aboutSK");
+                  });
                 }}
                   className={styles.burgerMenuButton}
                 >О компании</button>
 
                 <button
                   onClick={() => {
-                    setIsOpenNavMenu(false)
-                    scrollToSection("apartments")
+                    setIsOpenNavMenu(false);
+  
+                    requestAnimationFrame(() => {
+                      scrollToSection("apartments");
+                    });
                   }}
                   className={styles.burgerMenuButton}>
                   Квартиры</button>

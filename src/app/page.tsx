@@ -16,19 +16,33 @@ import MainInfoSection from "../sections/MainInfo/MainInfo";
 import PresentationDownloadSection from "../sections/PresentationDownload/PresentationDownload";
 import GeneralInfoSection from "../sections/GeneralInfo/GeneralInfo";
 import PhoneButton from "../components/PhoneButton/PhoneButton";
+import { useEffect } from "react";
+import Lenis from "lenis";
 
 export default function Home() {
+
+  useEffect(() => {
+    const lenis = new Lenis();
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf)
+    }
+    requestAnimationFrame(raf)
+
+  }, []
+  )
+
   return (
     <>
       <main className={styles.main}>
-        <PhoneButton/>
-        <ScrollToTopButton/>
+        <PhoneButton />
+        <ScrollToTopButton />
         <section>
           <Header></Header></section>
         <section>
-          <GeneralInfoSection/>
-          <MainInfoSection/>
-          <PresentationDownloadSection/>
+          <GeneralInfoSection />
+          <MainInfoSection />
+          <PresentationDownloadSection />
           <AboutSection></AboutSection>
           <NumbersSection></NumbersSection>
           <InfoSection></InfoSection>
@@ -45,10 +59,10 @@ export default function Home() {
             imagePosition="right"
           />
           <GallerySection />
-          <ApartmentsBlock/>
+          <ApartmentsBlock />
           <AboutSKSection />
-          <FooterSection/>
-          
+          <FooterSection />
+
         </section>
       </main>
     </>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
-import LenisProvider from "./LenisProvider";
+import { ReactLenis } from "../utils/lenis"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,14 +25,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <LenisProvider>
+
 
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-         <Script id="yandex-metrika" strategy="afterInteractive">
-          {`
+      <ReactLenis root>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <Script id="yandex-metrika" strategy="afterInteractive">
+            {`
             (function(m,e,t,r,i,k,a){
                 m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
                 m[i].l=1*new Date();
@@ -51,10 +52,10 @@ export default function RootLayout({
               trackLinks:true
             });
           `}
-        </Script>
-        {children}
-      </body>
+          </Script>
+          {children}
+        </body>
+      </ReactLenis>
     </html>
-    </LenisProvider>
   );
 }
